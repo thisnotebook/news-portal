@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -30,4 +30,25 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+ ::-webkit-scrollbar {
+  width:5px;
+height: 5px;
 }
+
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #43525b;
+  border-radius: 10px;
+}
+
+/* Handle on hover */ 
+::-webkit-scrollbar-thumb:hover {
+  background: #091D41;
+}
+
