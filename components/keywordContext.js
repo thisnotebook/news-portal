@@ -1,7 +1,7 @@
 import React, { createContext, useState } from 'react';
 
 export const KeywordContext = createContext();
-
+//k K
 export const KeywordProvider = ({ children }) => {
   const [keyword, setKeyword] = useState('');
   const [newsCon, setNewsCon] = useState([]);

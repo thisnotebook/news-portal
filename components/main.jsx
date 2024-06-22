@@ -14,7 +14,7 @@ const apiKey = "pub_47103f76a4ef2872c4fa6d5df6c6515fcc3bb";
 
 export const Main = () => {
   const { keyword, newsCon, setNewsCon } = useContext(KeywordContext);
-  // console.log("hello hi ",keyword,newsCon);
+   console.log("hello hi ",keyword,newsCon);
   const [currentPage, setCurrentPage] = useState(1);
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -118,9 +118,9 @@ export const Main = () => {
     <>
       <div className="flex justify-center mb-4">
         <div className="bg-gray-100 w-[100%] extralarge:w-[90%] flex justify-center pt-4">
-          <div className="grid grid-cols-3 extralarge:grid-cols-4 gap-x-2 lg:gap-x-6 gap-y-6 px-2 lg:px-4 py-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 extralarge:grid-cols-4 gap-x-2 lg:gap-x-6 gap-y-6 px-2 lg:px-4 py-4">
             {currentNews.map((item, idx) => (
-              <span key={idx} className="hidden lowest:block">
+              <span key={idx} className="">
                 <Card news={item} />
               </span>
             ))}
