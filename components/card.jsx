@@ -30,7 +30,8 @@ const temp = {
   ai_region: "ONLY AVAILABLE IN CORPORATE PLANS",
   ai_org: "ONLY AVAILABLE IN CORPORATE PLANS",
 };
-export const Card = ({news}) => {
+
+export const Card = ({news,loading}) => {
   //console.log(data.status,news);
   const router = useRouter();
   const handleAppointmentBtn = () => {
@@ -41,55 +42,126 @@ export const Card = ({news}) => {
   }
   return (
 
-      <div className=" w-[250px] h-[410px] font-serif  shadow-lg hover:scale-105 duration-300 ">
-        <img
-          src={news.image_url}
-          alt="image"
-          className="rounded-t-md shadow-lg w-[100%] object-cover h-[150px] "
-        />
-        <div className="p-2">
-          <h1
-            className="font-semibold text-gray-800 "
-            style={{
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              display: "-webkit-box",
-            }}
-          >
-            {" "}
-            {news.title}
-          </h1>
-          <p
-            className="text-sm text-gray-500 my-2 "
-            style={{
-              WebkitLineClamp: 4,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-              display: "-webkit-box",
-            }}
-          >
-            {news.description?news.description : news.title}
-          </p>
-        </div>
-        <div className="flex justify-around  items-center">
-            <p className="text-xs text-red-400">{news.language}</p>
-          <button
-          onClick={handleAppointmentBtn} 
-          className=" shadow-md p-1 px-2 bg-blue-600 rounded-md mr-2 text-white font-semibold text-sm font-sans">
-            {" "}
-            Read full article
-          </button>
-        </div>  
-        <div className="flex gap-1 ml-2 mt-2  ">
-            <p className="text-sm">source :</p>
-            <a href="https://www.kcra.com" className="text-sm text-blue-500">
-              {" "}
-              {news.source_id}
-            </a>
-          </div>
-          <p className="text-xs ml-2 mb-2">{news.pubDate}</p>
+    <div className={`w-[250px] h-[410px] font-serif shadow-lg hover:scale-105 duration-300 ${loading ? 'bg-gray-300 animate-pulse' : ''}`}>
+  {loading ? (
+    // Placeholder content when loading
+    <div className="w-full h-full flex flex-col justify-between">
+      <div className="bg-gray-300 h-[150px] rounded-t-md"></div>
+      <div className="p-2">
+        <div className="bg-gray-300 h-6 mb-2"></div>
+        <div className="bg-gray-300 h-4 mb-2"></div>
+        <div className="bg-gray-300 h-4"></div>
       </div>
+      <div className="p-2">
+        <div className="bg-gray-300 h-8 w-24 rounded-md"></div>
+      </div>
+      <div className="p-2">
+        <div className="bg-gray-300 h-4 w-20 mb-2"></div>
+        <div className="bg-gray-300 h-4 w-16"></div>
+      </div>
+    </div>
+  ) : (
+    // Actual news content after loading
+    <>
+      <img
+        src={news.image_url}
+        alt="image"
+        className="rounded-t-md shadow-lg w-[100%] object-cover h-[150px]"
+      />
+      <div className="p-2">
+        <h1
+          className="font-semibold text-gray-800"
+          style={{
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            display: "-webkit-box",
+          }}
+        >
+          {news.title}
+        </h1>
+        <p
+          className="text-sm text-gray-500 my-2"
+          style={{
+            WebkitLineClamp: 4,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            display: "-webkit-box",
+          }}
+        >
+          {news.description ? news.description : news.title}
+        </p>
+      </div>
+      <div className="flex justify-around items-center">
+        <p className="text-xs text-red-400">{news.language}</p>
+        <button
+          onClick={handleAppointmentBtn}
+          className="shadow-md p-1 px-2 bg-blue-600 rounded-md mr-2 text-white font-semibold text-sm font-sans"
+        >
+          Read full article
+        </button>
+      </div>
+      <div className="flex gap-1 ml-2 mt-2">
+        <p className="text-sm">source :</p>
+        <a href={news.link} className="text-sm text-blue-500">
+          {news.source_id}
+        </a>
+      </div>
+      <p className="text-xs ml-2 mb-2">{news.pubDate}</p>
+    </>
+  )}
+</div>
+
+
+      // <div className=" w-[250px] h-[410px] font-serif  shadow-lg hover:scale-105 duration-300 ">
+      //   <img
+      //     src={news.image_url}
+      //     alt="image"
+      //     className="rounded-t-md shadow-lg w-[100%] object-cover h-[150px] "
+      //   />
+      //   <div className="p-2">
+      //     <h1
+      //       className="font-semibold text-gray-800 "
+      //       style={{
+      //         WebkitLineClamp: 3,
+      //         WebkitBoxOrient: "vertical",
+      //         overflow: "hidden",
+      //         display: "-webkit-box",
+      //       }}
+      //     >
+      //       {" "}
+      //       {news.title}
+      //     </h1>
+      //     <p
+      //       className="text-sm text-gray-500 my-2 "
+      //       style={{
+      //         WebkitLineClamp: 4,
+      //         WebkitBoxOrient: "vertical",
+      //         overflow: "hidden",
+      //         display: "-webkit-box",
+      //       }}
+      //     >
+      //       {news.description?news.description : news.title}
+      //     </p>
+      //   </div>
+      //   <div className="flex justify-around  items-center">
+      //       <p className="text-xs text-red-400">{news.language}</p>
+      //     <button
+      //     onClick={handleAppointmentBtn} 
+      //     className=" shadow-md p-1 px-2 bg-blue-600 rounded-md mr-2 text-white font-semibold text-sm font-sans">
+      //       {" "}
+      //       Read full article
+      //     </button>
+      //   </div>  
+      //   <div className="flex gap-1 ml-2 mt-2  ">
+      //       <p className="text-sm">source :</p>
+      //       <a href="https://www.kcra.com" className="text-sm text-blue-500">
+      //         {" "}
+      //         {news.source_id}
+      //       </a>
+      //     </div>
+      //     <p className="text-xs ml-2 mb-2">{news.pubDate}</p>
+      // </div>
 
   );
 };
