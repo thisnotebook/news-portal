@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useContext } from "react";
-import { KeywordContext } from "./KeywordContext";
+import { KeywordContext } from "./KeywordContext.js";
 
 const topic = [
     
