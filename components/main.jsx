@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Card } from "./card";
 import { useSelector, useDispatch } from "react-redux";
-import { KeywordContext } from "./KeywordContext";
+import { KeywordContext } from "./KeywordContext.js";
 import {
   setKeyword,
   fetchInitialNews,

@@ -2,7 +2,7 @@
 import Navbar from "../../components/Navbar"
 import {Main} from "../../components/main"
 import {Footer} from "../../components/footer"
-import { KeywordProvider } from "../../components/KeywordContext";
+import { KeywordProvider } from "../../components/KeywordContext.js";
 export default function Home() {
   return (
     <KeywordProvider>
